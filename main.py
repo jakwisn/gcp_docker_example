@@ -1,10 +1,13 @@
 from sklearn import datasets, svm, metrics
 from sklearn.model_selection import train_test_split
-
+import torch
 
 if __name__ == '__main__':
     digits = datasets.load_digits()
 
+    # print if has gpu 
+    print('GPU Available:', torch.cuda.is_available())
+    
     # flatten the images
     n_samples = len(digits.images)
     data = digits.images.reshape((n_samples, -1))
